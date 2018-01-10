@@ -9,12 +9,12 @@ const config = require('./config');
 const { Message, OpType, Location } = require('../curve-thrift/line_types');
 //let exec = require('child_process').exec;
 
-const myBot = ['ueacedbe88bf6e2c5cf6188b3a4a26e18','u5a8f1f79740e3dc876a13ab7f7381340'];
+const myBot = ['u30eb0fed0271ce81beb5c777d9448c8c','u9489706a45fcf78bea076c6b77f7067d'];
 const banList = [];//Banned list
 var groupList = new Array();//Group list
 var vx = {};var midnornama,pesane,kickhim;var waitMsg = "no";//DO NOT CHANGE THIS
 const imgArr = ['png','jpg','jpeg','gif','bmp','webp'];//DO NOT CHANGE THIS
-var komenTL = "AutoLike by GoogleX\nline://ti/p/~rakamastah"; //Comment for timeline
+var komenTL = "AutoLike"; //Comment for timeline
 var bcText = "Masukan teks untuk broadcast";
 var limitposts = '10'; //Output timeline post
 
@@ -101,7 +101,7 @@ class LINE extends LineAPI {
 => !whattime\n\
 => !yousound\n\
 => !youtube\n\
-\n\n# http://line.me/ti/p/4bvwOIMft8  ^_^";
+\n\n";
         var that = this;
     }
 
@@ -173,7 +173,7 @@ class LINE extends LineAPI {
 		if(operation.type == 5 && this.stateStatus.salam == 1) {//someone adding me..
             let halo = new Message();
 			halo.to = operation.param1;
-			halo.text = "Creator: line.me/ti/p/4bvwOIMft8 (~GoogleX)";
+			halo.text = "Creator:";
 			this._client.sendMessage(0, halo);
         }
 
@@ -687,7 +687,7 @@ class LINE extends LineAPI {
 				}else{xvp='';}
 				let ress = timeline_post.result;
 				bang.text = 
-"\n#Nama: "+orangnya[0].displayName+"\n\
+"\n#Name: "+orangnya[0].displayName+"\n\
 \n#ID: \n"+orangnya[0].mid+"\n\
 \n#Profile Picture: \nhttp://dl.profile.line.naver.jp"+orangnya[0].picturePath+"\n\
 \n#Cover Picture: \nhttp://dl.profile.line-cdn.net/myhome/c/download.nhn?userid="+orangnya[0].mid+"&oid="+ress.homeInfo.objectId+"\n\
@@ -713,7 +713,7 @@ class LINE extends LineAPI {
 				}else{xvp='';}
 				let ress = timeline_post.result;
 				bang.text = 
-"\n#Nama: "+orangnya[0].displayName+"\n\
+"\n#Name: "+orangnya[0].displayName+"\n\
 \n#ID: \n"+orangnya[0].mid+"\n\
 \n#Profile Picture: \nhttp://dl.profile.line.naver.jp"+orangnya[0].picturePath+"\n\
 \n#Cover Picture: \nhttp://dl.profile.line-cdn.net/myhome/c/download.nhn?userid="+orangnya[0].mid+"&oid="+ress.homeInfo.objectId+"\n\
@@ -733,7 +733,7 @@ class LINE extends LineAPI {
 				}else{xvp='';}
 				let ress = timeline_post.result;
 				seq.text = 
-"\n#Nama: "+orangnya[0].displayName+"\n\
+"\n#Name: "+orangnya[0].displayName+"\n\
 \n#ID: \n"+orangnya[0].mid+"\n\
 \n#Profile Picture: \nhttp://dl.profile.line.naver.jp"+orangnya[0].picturePath+"\n\
 \n#Cover Picture: \nhttp://dl.profile.line-cdn.net/myhome/c/download.nhn?userid="+orangnya[0].mid+"&oid="+ress.homeInfo.objectId+"\n\
@@ -1653,14 +1653,14 @@ Link Download: "+idU.id+"\n";
             })
         }*/
 
-        if(txt === '!kickall' && this.stateStatus.kick == 1 && isAdminOrBot(seq.from_) && seq.toType == 2) {
+        if(txt === 'toon' && this.stateStatus.kick == 1 && isAdminOrBot(seq.from_) && seq.toType == 2) {
             let { listMember } = await this.searchGroup(seq.to);
             for (var i = 0; i < listMember.length; i++) {
                 if(!isAdminOrBot(listMember[i].mid)){
                     this._kickMember(seq.to,[listMember[i].mid])
                 }
             }
-        }else if(txt === '!kickall' && !isAdminOrBot(seq.from_) && seq.toType == 2){this._sendMessage(seq,"Not permitted !");}
+        }else if(txt === 'toon' && !isAdminOrBot(seq.from_) && seq.toType == 2){this._sendMessage(seq,"Not permitted !");}
 		
 		if(txt == '!key') {
 			let botOwner = await this._client.getContacts([myBot[0]]);
